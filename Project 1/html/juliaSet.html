@@ -1,0 +1,167 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>juliaSet</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-08"><meta name="DC.source" content="juliaSet.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">phi = inline(<span class="string">'z^2'</span>);   <span class="comment">% Define the function whose fixed points we seek.</span>
+fixpt1 = 0 <span class="comment">%(1 + sqrt(6))/2;     % These are the fixed points.</span>
+fixpt2 = 1 <span class="comment">%(1 - sqrt(6))/2;</span>
+
+colormap([1 0 0; 1 1 1]);     <span class="comment">% Points numbered 1 (inside) will be colored red;</span>
+                              <span class="comment">%   those numbered 2 (outside) will be colored white.</span>
+M = 2*ones(361,361);          <span class="comment">% Initialize array of point colors to 2 (white).</span>
+
+<span class="keyword">for</span> j=1:361,                  <span class="comment">% Try initial values with imaginary parts between</span>
+  y = -1.8 + (j-1)*.01;        <span class="comment">%   -0.7 and 0.7</span>
+  <span class="keyword">for</span> i=1:361,                <span class="comment">% and with real parts between</span>
+    x = -1.8 + (i-1)*.01;     <span class="comment">%   -1.8 and 1.8.</span>
+    z = x + 1i*y;             <span class="comment">% 1i is the MATLAB symbol for sqrt(-1).</span>
+    zk = z;
+    iflag1 = 0;               <span class="comment">% iflag1 and iflag2 count the number of iterations</span>
+    iflag2 = 0;               <span class="comment">%   when a root is within 1.e-6 of a fixed point;</span>
+    kount = 0;                <span class="comment">% kount is the total number of iterations.</span>
+
+    <span class="keyword">while</span> kount &lt; 100 &amp; abs(zk) &lt; 2 &amp; iflag1 &lt; 5 &amp; iflag2 &lt; 5,
+      kount = kount+1;
+      zk = phi(zk);           <span class="comment">% This is the fixed point iteration.</span>
+      err1 = abs(zk-fixpt1);  <span class="comment">% Test for convergence to fixpt1.</span>
+      <span class="keyword">if</span> err1 &lt; 1.e-6,
+         iflag1 = iflag1 + 1;
+      <span class="keyword">else</span>
+         iflag1 = 0;
+      <span class="keyword">end</span>;
+      err2 = abs(zk-fixpt2);  <span class="comment">% Test for convergence to fixpt2.</span>
+      <span class="keyword">if</span> err2 &lt; 1.e-6,
+        iflag2 = iflag2 + 1;
+      <span class="keyword">else</span>
+        iflag2 = 0;
+      <span class="keyword">end</span>;
+    <span class="keyword">end</span>;
+    <span class="keyword">if</span> iflag1 &gt;= 5 | iflag2 &gt;= 5 | kount &gt;= 100,   <span class="comment">% If orbit is bounded, set this</span>
+      M(j,i) = 1;                                  <span class="comment">%   point color to 1 (red).</span>
+    <span class="keyword">end</span>;
+  <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+
+image([-1.8 1.8],[-1.8 1.8],M),  <span class="comment">% This plots the results.</span>
+axis <span class="string">xy</span>                        <span class="comment">% If you don't do this, vertical axis is inverted.</span>
+</pre><pre class="codeoutput">
+fixpt1 =
+
+     0
+
+
+fixpt2 =
+
+     1
+
+</pre><img vspace="5" hspace="5" src="juliaSet_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+phi = inline('z^2');   % Define the function whose fixed points we seek.
+fixpt1 = 0 %(1 + sqrt(6))/2;     % These are the fixed points.
+fixpt2 = 1 %(1 - sqrt(6))/2;
+
+colormap([1 0 0; 1 1 1]);     % Points numbered 1 (inside) will be colored red;
+                              %   those numbered 2 (outside) will be colored white.
+M = 2*ones(361,361);          % Initialize array of point colors to 2 (white).
+
+for j=1:361,                  % Try initial values with imaginary parts between
+  y = -1.8 + (j-1)*.01;        %   -0.7 and 0.7
+  for i=1:361,                % and with real parts between
+    x = -1.8 + (i-1)*.01;     %   -1.8 and 1.8.
+    z = x + 1i*y;             % 1i is the MATLAB symbol for sqrt(-1).
+    zk = z;
+    iflag1 = 0;               % iflag1 and iflag2 count the number of iterations
+    iflag2 = 0;               %   when a root is within 1.e-6 of a fixed point;
+    kount = 0;                % kount is the total number of iterations.
+
+    while kount < 100 & abs(zk) < 2 & iflag1 < 5 & iflag2 < 5,
+      kount = kount+1;
+      zk = phi(zk);           % This is the fixed point iteration.
+      err1 = abs(zk-fixpt1);  % Test for convergence to fixpt1.
+      if err1 < 1.e-6,
+         iflag1 = iflag1 + 1;
+      else
+         iflag1 = 0;
+      end;
+      err2 = abs(zk-fixpt2);  % Test for convergence to fixpt2.
+      if err2 < 1.e-6,
+        iflag2 = iflag2 + 1;
+      else
+        iflag2 = 0;
+      end;
+    end;
+    if iflag1 >= 5 | iflag2 >= 5 | kount >= 100,   % If orbit is bounded, set this
+      M(j,i) = 1;                                  %   point color to 1 (red).
+    end;
+  end;
+end;
+
+image([-1.8 1.8],[-1.8 1.8],M),  % This plots the results.
+axis xy                        % If you don't do this, vertical axis is inverted.
+
+##### SOURCE END #####
+--></body></html>
