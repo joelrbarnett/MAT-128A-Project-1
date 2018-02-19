@@ -2,8 +2,8 @@
 c= 0.36 +0.1*1i ;   % Define the function whose fixed points we seek.
 
 phi = @(z) z^2 + c;
-fxpt1 = (1 + sqrt(1-4*c))/2;
-fxpt2 = (1 - sqrt(1-4*c))/2;
+fixpt1 = (1 + sqrt(1-4*c))/2;
+fixpt2 = (1 - sqrt(1-4*c))/2;
 
 colormap([1 0 0; 1 1 1]);     % Points numbered 1 (inside) will be colored red;
                               %   those numbered 2 (outside) will be colored white.

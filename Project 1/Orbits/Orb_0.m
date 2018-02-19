@@ -7,8 +7,8 @@ z0=0;
 
 %Define the functions and fixed points.
 phi = @(z) z^2 + c;
-fxpt1 = (1 + sqrt(1-4*c))/2;
-fxpt2 = (1 - sqrt(1-4*c))/2;
+fixpt1 = (1 + sqrt(1-4*c))/2;
+fixpt2 = (1 - sqrt(1-4*c))/2;
 
 
     iflag1 = 0;     % iflag1 and iflag2 count the number of iterations
