@@ -43,4 +43,4 @@ end
 
 image([-1.8 1.8],[-1.8 1.8],M),  % This plots the results.
 pbaspect([1 1 1]); %keeps the x/y ratio even
-axis xy                        % If you don't do this, vertical axis is inverted.
+axis xy            % If you don't do this, vertical axis is inverted.
