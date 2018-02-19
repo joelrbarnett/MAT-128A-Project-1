@@ -6,8 +6,8 @@ c=0.36+0.1*1i;
 
 %Define the functions and fixed points.
 phi = @(z) z^2 + c;
-fxpt1 = (1 + sqrt(1-4*c))/2;
-fxpt2 = (1 - sqrt(1-4*c))/2;
+fixpt1 = (1 + sqrt(1-4*c))/2;
+fixpt2 = (1 - sqrt(1-4*c))/2;
 
 colormap jet;
 M= zeros(401,401);
