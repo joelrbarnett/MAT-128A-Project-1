@@ -1,4 +1,12 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Filled Julia Sets}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{MATLAB Code}{}% 4
+\BOOKMARK [1][-]{section.2}{Julia Sets}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Filled Julia Sets on the Unit Disc}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Various Julia Sets}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Boundaries of Filled Julia Sets}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Computing Fractal Dimentions}{}% 6
+\BOOKMARK [1][-]{section.4}{Orbits}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Connectedness of the Filled Julia Set}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Coloring Divergenet Orbits}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{A Newton's Method Approach}{}% 10
+\BOOKMARK [1][-]{section.6}{Mandelbrot Sets}{}% 11
+\BOOKMARK [1][-]{section.7}{MATLAB Code}{}% 12
