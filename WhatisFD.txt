@@ -1,0 +1,35 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath, geometry, mathabx,epsfig}
+
+%%Alina
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+%\usepackage[text={6.5in,9in},centering]{geometry}
+
+\textwidth = 6.5 in
+\textheight = 9.5 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in			 
+\headheight = 0.0 in			
+\headsep = 0.0 in
+\parskip = 0.2in
+
+\pagenumbering{gobble}
+
+\title{What is the fractal dimension?}
+
+\begin{document}
+\maketitle
+
+The fractal dimension is used to describe fractals. Fractals generally have a non-integer dimension, so the fractal dimension value is used as an index to describe how the fractal’s pattern changes while it is scaled. It can be used to measure the degree of roughness of a shape. If we place our shape on a grid, its “length” can be viewed as the total amount of boxes that overlap the shape. As we increase or decrease the size of our shape (keeping the grid the same), the number of boxes touching the shape will increase or decrease respectively. The “length” which has now increased or decreased, has a scaling factor. This scaling factor raised to the value of the fractal dimension is used to compute its new size. Simple math can be used to compute the fractal dimension as well.
+
+Let $M$ be our scaling factor and $N$ be our "length" scaling factor. Our fractal dimension is $D$ such that:  \\
+$M^{D} = N \Rightarrow D =$ log$_{M}(N)$
+
+\end{document} 
