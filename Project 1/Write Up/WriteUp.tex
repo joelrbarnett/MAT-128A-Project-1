@@ -75,12 +75,12 @@
 
 \section{Computing Fractal Dimentions}
 The fractal dimension is used to describe fractals. Fractals generally have a non-integer dimension, so the fractal dimension value is used as an index to describe how the fractal’s pattern changes while it is scaled. It can be used to measure the degree of roughness of a shape. If we place our shape on a grid, its “length” can be viewed as the total amount of boxes that overlap the shape. As we increase or decrease the size of our shape (keeping the grid the same), the number of boxes touching the shape will increase or decrease respectively. The “length” which has now increased or decreased, has a scaling factor. This scaling factor raised to the value of the fractal dimension is used to compute its new size. Simple math can be used to compute the fractal dimension as well. This is easily seen for objects of known dimension.\\
-For example, a line is of dimension one, and if we let $L=length$ and scale $L$ by $M$ to give a new line with length $N$, we expect the length to scale linearly to $N=LM$. Thus, our dimension is the $D$ such that $M^D*L=N$, which is easily seen to be $D=1$. If we use a 2D object, such as a disc, and scale a circle of area $A$ by $M$ in every dimension, we expect the final area, $N$, to be $M^2*A$. Thus, our dimension is $D=2$.\\ 
+For example, a line is of dimension one, and if we let $L=length$ and scale $L$ by $M$ to give a new line with length $N$, we expect the length to scale linearly to $N=LM$. Thus, our dimension is the $D$ such that $M^D*L=N$, which is easily seen to be $D=1$. If we use a 2D object, such as a disc, and scale a disc of area $A$ by $M$ in every dimension, we expect the final area, $N$, to be $M^2*A$. Thus, our dimension is $D=2$.\\ 
 
-In general, we let $M$ be our scaling factor and $N$ be our scaled "length" . Our fractal dimension is $D$ such that:  \\
+In general, we let $M$ be our scaling factor and $N$ be our scaled "object". Our fractal dimension is $D$ such that:  \\
 $M^{D} = N \Rightarrow D =$ log$_{M}(N)$\\
 \newline
-We implement the reticular cell counting and differential box counting algorithms to compute the fractal dimensions, and test it on the unit disc fractal below. Note that we expect a dimension of $1$ for the unit circle since the length of the circumference is proportional to the radius, so scaling the radius by $M$ will only increase to the length $N=ML$, so the dimension is $D=1$. Code for these is provided in section \ref{dim}.
+We implement the reticular cell counting and differential box counting algorithms to compute the fractal dimensions, and test it on the unit circle fractal below. Note that we expect a dimension of $1$ for the unit circle since the length of the circumference is proportional to the radius, so scaling the radius by $M$ will only increase to the length $N=ML$, so the dimension is $D=1$. Code for these is provided in section \ref{dim}.
 
 	\begin{verbatim}
 	>> Project1_4
