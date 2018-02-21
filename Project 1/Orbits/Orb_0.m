@@ -1,8 +1,9 @@
+function Orb_0(const)
 % Checks if 0 is in the filled Julia Set for a given \phi(z)=z^2+c
 % by computing the orbit of 0.
 
 %Define the c and initial z_0 (for orb(0), use z0=0;
-c=0.36+0.1*1i;
+c=const;
 z0=0;
 
 %Define the functions and fixed points.
@@ -33,9 +34,11 @@ fixpt2 = (1 - sqrt(1-4*c))/2;
       end
     end
     
-    if iflag1 >= 5 || iflag2 >= 5 || kount >= 1000   % If orb(0) is bounded, 
-      fprintf('The filled Julia set is connected \n');% 0 is in the filled julia set
+    if iflag1 >= 5 || iflag2 >= 5    % If orb(0) converges to a root, 
+      fprintf('The sequence orb(0) converges to a root; thus, the filled Julia set is connected \n');% 0 is in the filled julia set
+    elseif kount >= 1000 %otherwise, if the orbit remained bounded for large iterations
+        fprintf('Orb(0) remained bounded for 1000 iterations. We assume the filled Julia set is connected \n'); 
     else
-        fprintf('The filled Julia set is not connected \n');
+        fprintf('The orb(0) is unbounded, so the filled Julia set is not connected \n');
     end
-
+end

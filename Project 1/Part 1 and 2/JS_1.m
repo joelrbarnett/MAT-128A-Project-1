@@ -41,5 +41,8 @@ for j=1:361                  % Try initial values with imaginary parts between
 end
 
 image([-1.8 1.8],[-1.8 1.8],M),  % This plots the results.
+title('Filled Julia set for \phi(z)=z^2+c, c = 0')
+xlabel('X')
+ylabel('Y')
 pbaspect([1 1 1]); %keeps the x/y ratio even
 axis xy            % If you don't do this, vertical axis is inverted.

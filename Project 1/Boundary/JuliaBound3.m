@@ -35,6 +35,10 @@ for j=1:201                  % Try initial values with imaginary parts between
 end
 %plot the Rphi vs Iphi
 scatter(Rphi,Iphi,'.')
+title('Julia set for \phi(z)=z^2+c, c = 0.36+0.1i')
+xlabel('X')
+ylabel('Y')
+
 pbaspect([1 1 1]);  %keep aspect ration square
 
 
