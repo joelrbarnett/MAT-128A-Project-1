@@ -7,7 +7,7 @@
 im = imread('discBoundary.jpg');
 image(im)
 axis image
-im = im(1:800,200:1000,3);
+im = im(1:800,201:1000,3);
 bi = (im<200);
 
 imagesc(bi)
@@ -20,7 +20,7 @@ axis image
 
 N = zeros(1,3);     % Total number of boxes that contain at least one gray level
                     % intensity surface.
-L = [2 3 5];        % Dimension of grids
+L = [3 2 5];        % Dimension of grids
 
 % STEP 3
 % Count number of boxes containing non white entries
@@ -33,21 +33,6 @@ N(1,3) = grayCount(row,col,L(1,3),bi);
 Nl = log(N);
 Ll = log(L);
 
-numpt = size(N);
-xi = 0;
-yi = 0;
-xy = 0;
-x2 = 0;
-
-for i=1:numpt(1,2)
-    xi = Nl(1,i)+xi;
-    yi = Ll(1,i)+yi;
-    xy = Nl(1,i)+Ll(1,i)+xy;
-    x2 = Nl(1,i)^2+x2;
-end
-
-a1 = (numpt*xy-xi*yi)/(numpt*x2 - xi^2);
-
-D = -a1;
-
+p = polyfit(log10(L),log10(N),1);
+fd=-p(1);
 
