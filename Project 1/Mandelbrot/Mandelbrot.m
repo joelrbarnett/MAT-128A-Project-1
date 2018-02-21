@@ -41,7 +41,7 @@ for j=1:401                  % Try initial values with imaginary parts between
     end
     
     if abs(zk)>100 %if the orbit diverged, fill in the color map
-        M(j,i)=kcount; %the color for terms that diverged with similar 
+        M(j,i)=kcount+30; %the color for terms that diverged with similar 
                         %kcounts will have similar color
     end
   end

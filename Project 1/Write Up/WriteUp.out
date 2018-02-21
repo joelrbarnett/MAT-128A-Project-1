@@ -6,10 +6,12 @@
 \BOOKMARK [1][-]{section.3}{Computing Fractal Dimentions}{}% 6
 \BOOKMARK [1][-]{section.4}{Orbits}{}% 7
 \BOOKMARK [2][-]{subsection.4.1}{Connectedness of the Filled Julia Set}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.2}{Coloring Divergenet Orbits}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Coloring Divergent Orbits}{section.4}% 9
 \BOOKMARK [1][-]{section.5}{A Newton's Method Approach}{}% 10
 \BOOKMARK [1][-]{section.6}{Mandelbrot Sets}{}% 11
 \BOOKMARK [1][-]{section.7}{MATLAB Code}{}% 12
 \BOOKMARK [2][-]{subsection.7.1}{Julia Sets}{section.7}% 13
-\BOOKMARK [2][-]{subsection.7.2}{Orbits}{section.7}% 14
-\BOOKMARK [2][-]{subsection.7.3}{Mandelbrot Code}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.2}{Fractal Dimensions}{section.7}% 14
+\BOOKMARK [2][-]{subsection.7.3}{Orbits}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.4}{Newton's Method}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.5}{Mandelbrot Code}{section.7}% 17
